@@ -2,7 +2,7 @@
 
 import { getTodaySchedule } from '@/lib/schedule'
 import { getDayName } from '@/lib/dates'
-import { CATEGORY_COLORS, CATEGORY_LABELS } from '@/types/calendar'
+import { CATEGORY_COLORS, CATEGORY_LABELS, CATEGORY_EMOJIS } from '@/types/calendar'
 import { cn } from '@/lib/utils'
 
 export function TodaySchedule() {
@@ -25,6 +25,7 @@ export function TodaySchedule() {
               <span className="w-12 shrink-0 text-xs text-muted-foreground tabular-nums">
                 {entry.startTime}
               </span>
+              <span className="text-sm shrink-0">{CATEGORY_EMOJIS[entry.category]}</span>
               <span
                 className={cn(
                   'h-2 w-2 shrink-0 rounded-full',
@@ -33,7 +34,7 @@ export function TodaySchedule() {
               />
               <span className="text-sm font-medium">{entry.title}</span>
               <span className="ml-auto text-xs text-muted-foreground">
-                {CATEGORY_LABELS[entry.category]}
+                {entry.endTime}
               </span>
             </div>
           ))}
